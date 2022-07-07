@@ -1,3 +1,5 @@
+//-------------------------------------------------------------------------------------------------Add Teachers----------------------------------------------------------------
+
 $(document).ready(function(){
     $('#submit').click(function(e)
     {
@@ -12,6 +14,7 @@ $(document).ready(function(){
 
         $('#submit').html('Please Wait...');
         $("#submit"). attr("disabled", true);
+        console.log(addurl);
 
 
         $.ajax({
@@ -22,12 +25,12 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             // data    : $('#formdata').serialize(),
-            success : function(_response){
+            success : function(response){  
 
                 $('#submit').html('Submit');
                 $("#submit"). attr("disabled", false);
-                alert("Added");
-                console.log("success");
+                    window.location=response.redirect_url;
+                console.log(response.redirect_url);
 
             }
 
@@ -37,7 +40,7 @@ $(document).ready(function(){
 });
 
 
-
+//------------------------------------------------------------------------------------DataTables------------------------------------------------------------------
 
 $(document).ready(function(){
 

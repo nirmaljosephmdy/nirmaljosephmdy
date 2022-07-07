@@ -106,4 +106,8 @@ class LoginController extends Controller
     {
         return view('login.register');
     }
+    public function dashboard()
+    {
+    
+    }
 }

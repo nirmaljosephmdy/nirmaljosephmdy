@@ -7,6 +7,13 @@
     $genders  = (config('options.gender'));
 @endphp
 
+@include('sweet::alert')
+
+@if (Session::has('sweet_alert.alert'))
+<script>
+  swal({!! Session::get('sweet_alert.alert') !!});
+</script>
+@endif
 
 <div class="content-wrapper">
 
@@ -18,8 +25,8 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{route('fetch.all')}}">Home</a></li>
-                <li class="breadcrumb-item active">Add Teachers</li>
+                <li class="breadcrumb-item"><a href="{{route('teacher.index')}}">Teachers</a></li>
+                <li class="breadcrumb-item active">Add </li>
               </ol>
             </div>
           </div>
@@ -63,13 +70,14 @@
                     </div>
                   </div>
 
-                  <div class="row">
 
-                    <div class="col-sm-6">
+
+                  
                       <!-- select -->
-                      <div class="form-group">
-                        <label>Permission</label>
-                        <select name="usertype" class="custom-select">
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" >Permission</label>
+                        <div class="col-sm-10">
+                        <select name="usertype" class="custom-select form-control ">
                           <option selected>Choose</option>
 
                           @foreach ($usertypes as $key=> $usertype )
@@ -77,13 +85,16 @@
                           @endforeach
 
                         </select>
+                        <div>
                       </div>
-                    </div>
+                        </div>
+                      </div>
+                  
 
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Gender</label>
-                        <select name="gender" class="custom-select" >
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Gender</label>
+                        <div class="col-sm-10">
+                        <select name="gender" class="custom-select form-control" >
                           <option selected>Choose</option>
 
                           @foreach ($genders as $gender )
@@ -91,48 +102,21 @@
                           @endforeach
 
                         </select>
+                        <div>
                       </div>
+                        </div>
                     </div>
-
-                  </div>
-
-
-
-                <div class="form-group row">
-                  <div class="offset-sm-2 col-sm-10">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                      <label class="form-check-label" for="exampleCheck2">Remember Me</label>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
               <!-- /.card-body -->
               <div class="card-footer">
                 <button type="submit" id="submit" class="btn btn-info">Add Staff</button>
-                <button class="btn btn-default float-right"><a href="{{route('fetch.all')}}">Cancel</a></button>
+                <button class="btn btn-default float-right"><a href="{{route('teacher.index')}}">Cancel</a></button>
               </div>
               <!-- /.card-footer -->
             </form>
           </div>
           <!-- /.card -->
 
-
-
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 
@@ -145,8 +129,12 @@
 
 
 
+
+
+
+
 <script>
-        const  addurl   = "{{route('add.staff')}}";
+        const  addurl   = "{{route('teacher.store')}}";
 </script>
 
 <script type="text/javascript" src="{{asset('asset/js/teacher/add.js')}}"></script>

@@ -7,6 +7,9 @@ use App\Models\Admin;
 use App\Repositories\Teacher\TeachersRepositories;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
+use SweetAlert;
+use UxWeb\SweetAlert\SweetAlert as SweetAlertSweetAlert;
+
 
 class TeachersController extends Controller
 {
@@ -15,6 +18,13 @@ class TeachersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function home()
+     {
+        return view('adminpanel.index');
+     }
+
+
 
     public function index()
     {
@@ -67,7 +77,10 @@ class TeachersController extends Controller
              $registration->status      = 0;
 
              $registration->save();
-             return response()->json(['Success'=>true]);
+
+             alert()->success('Added Successfully');
+
+             return json_encode(['status'=>true,"redirect_url"=>url('index')]);
 
         }
     }
@@ -91,7 +104,9 @@ class TeachersController extends Controller
      */
     public function edit($id)
     {
-        dd($id);
+        $teacherDetails=TeachersRepositories::getTeacherDetails($id);
+        return view('adminpanel.teachers.edit',compact('teacherDetails'));
+
     }
 
     /**
@@ -101,9 +116,24 @@ class TeachersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id                     = $request->id;
+        $currentInfo            = Admin::find($id);
+
+        $currentInfo->name      = $request->name;
+        $currentInfo->usertype  = $request->usertype;
+        $currentInfo->email     = $request->email;
+        $currentInfo->gender    = $request->gender;
+        $currentInfo->profilepic= $request->profilepic;
+
+        $currentInfo->save();
+        alert()->success('Success');
+        return redirect()->route('teacher.index');
+
+
+
+        
     }
 
     /**
@@ -114,7 +144,10 @@ class TeachersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $teacher    =Admin::find($id);
+        $teacher->delete();
+        alert()->success('Deleted Successfully');
+        return redirect()->back();
     }
 
     public function datatable(Request $request)
@@ -196,10 +229,10 @@ class TeachersController extends Controller
                             "gender"    =>$record->gender,
                             "permission"=>$permission,
                             "status"    =>$status,
-                            "action" =>'<a class="btn btn-primary btn-sm actionedit" title="edit category" href='.route('teacheredit',$record->_id).' >
+                            "action" =>'<a href=" '.route('teacher.edit',['teacher'=>$record->id]).' "  data-id='.$record->id.'  class="btn btn-primary btn-sm actionedit" title="edit category" >
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
-                                <a class="btn btn-danger btn-sm actionDelete" data-href="#">
+                                <a class="btn btn-danger btn-sm actionDelete" href=" '.route('teacher.remove',['remove'=>$record->id]).'">
                                     <i class="fas fa-trash"></i>
                                 </a>'
                         );
