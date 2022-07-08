@@ -17,7 +17,6 @@ Route::get('/', function () {
     return view('login.login');
 });
 
-// Route::get('check',[UserController::class,'create']);
 
 require('backend/login.php');
 require('backend/backend.php');
