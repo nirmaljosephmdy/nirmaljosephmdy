@@ -21,7 +21,8 @@ class TeachersController extends Controller
 
      public function home()
      {
-        return view('adminpanel.index');
+        $teacherCount =Admin::where('usertype',0)->count();
+        return view('adminpanel.index',compact('teacherCount'));
      }
 
 
