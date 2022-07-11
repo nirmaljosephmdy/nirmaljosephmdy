@@ -43,7 +43,6 @@
             <div class="form-group">
                 <label>Question Type</label>
                 <select class="form-control select2" id="type" style="width: 100%;">
-                  <option selected="selected" disabled>Choose</option>
 
                   @foreach ($Qtypes as $key=> $Qtype )
                   <option value="{{$key}}">{{$Qtype}}</option>
@@ -74,8 +73,12 @@
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Question</label>
-                        <textarea class="form-control" rows="1" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="question" id="question" rows="1" placeholder="Enter Question"></textarea>
                       </div>
+
+                      @error('question')
+                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
                     </div>
                   </div>
 
@@ -86,7 +89,7 @@
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Option 1</label>
-                        <textarea class="form-control" rows="1" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="optiona" id="optiona" rows="1" placeholder="Option 1"></textarea>
                       </div>
                     </div>
 
@@ -106,7 +109,7 @@
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Option 2</label>
-                        <textarea class="form-control" rows="1" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="optionb" id="optionb" rows="1" placeholder="Option 2"></textarea>
                       </div>
                     </div>
 
@@ -126,7 +129,7 @@
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Option 3</label>
-                        <textarea class="form-control" rows="1" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="optionc" id="optionc" rows="1" placeholder="Option 3"></textarea>
                       </div>
                     </div>
 
@@ -146,7 +149,7 @@
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Option 4</label>
-                        <textarea class="form-control" rows="1" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="optiond" id="optiond" rows="1" placeholder="Option 4"></textarea>
                       </div>
                     </div>
 
@@ -177,7 +180,7 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Question</label>
-            <textarea class="form-control" rows="1" placeholder="Enter ..."></textarea>
+            <textarea class="form-control" name="question" id="question" rows="1" placeholder="Enter Question"></textarea>
           </div>
         </div>
       </div>
@@ -189,12 +192,9 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 1</label>
-            <div class="col-lg-6">
-                <div class="btn-group w-100">
-                  <span class="btn btn-success col fileinput-button">
-                    <i class="fas fa-plus"></i>
-                    <span>Add File</span>
-                  </span>
+            <div class="custom-file col-sm-7">
+              <div class="form-group">
+                  <input type="file" id="optiona" name="optiona" class=" form-control">
                 </div>
             </div>
           </div>
@@ -215,12 +215,9 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 2</label>
-            <div class="col-lg-6">
-                <div class="btn-group w-100">
-                  <span class="btn btn-success col fileinput-button">
-                    <i class="fas fa-plus"></i>
-                    <span>Add File</span>
-                  </span>
+            <div class="custom-file col-sm-7">
+              <div class="form-group">
+                  <input type="file" id="optionb" name="optionb" class=" form-control">
                 </div>
             </div>
           </div>
@@ -240,12 +237,9 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 3</label>
-            <div class="col-lg-6">
-                <div class="btn-group w-100">
-                  <span class="btn btn-success col fileinput-button">
-                    <i class="fas fa-plus"></i>
-                    <span>Add File</span>
-                  </span>
+            <div class="custom-file col-sm-7">
+              <div class="form-group">
+                  <input type="file" id="optionc" name="optionc" class=" form-control">
                 </div>
             </div>
           </div>
@@ -266,12 +260,9 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 4</label>
-            <div class="col-lg-6">
-                <div class="btn-group w-100">
-                  <span class="btn btn-success col fileinput-button">
-                    <i class="fas fa-plus"></i>
-                    <span>Add File</span>
-                  </span>
+            <div class="custom-file col-sm-7">
+              <div class="form-group">
+                  <input type="file" id="optiond" name="optiond" class=" form-control">
                 </div>
             </div>
           </div>
@@ -297,18 +288,25 @@
 
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-7">
           <!-- textarea -->
           <div class="form-group">
             <label>Question</label>
-            <textarea class="form-control" rows="1" placeholder="Enter ..."></textarea>
+            <textarea class="form-control" rows="1" placeholder="Enter Question"></textarea>
           </div>
+        </div>
+
+        <div class="custom-file col-sm-5">
+          <div class="form-group">
+            <label><span></span></label>
+              <input type="file" class=" form-control">
+            </div>
         </div>
       </div>
 
 
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <!-- textarea -->
           <div class="form-group">
             <label>Option 1</label>
@@ -316,14 +314,7 @@
           </div>
         </div>
 
-        <div class="custom-file col-sm-3">
-            <div class="form-group">
-                <label>Choose File</label>
-                <input type="file" class=" form-control">
-              </div>
-          </div>
-
-        <div class="col-sm-3">
+        <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
             <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype1" name="customRadio3">
             <label for="Radiotype1" class="custom-control-label">Is_Answer</label>
@@ -334,7 +325,7 @@
 
 
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <!-- textarea -->
           <div class="form-group">
             <label>Option 2</label>
@@ -342,14 +333,7 @@
           </div>
         </div>
 
-        <div class="custom-file col-sm-3">
-            <div class="form-group">
-                <label>Choose File</label>
-                <input type="file" class=" form-control">
-              </div>
-          </div>
-
-        <div class="col-sm-3">
+        <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
             <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype2" name="customRadio3">
             <label for="Radiotype2" class="custom-control-label">Is_Answer</label>
@@ -360,7 +344,7 @@
 
 
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <!-- textarea -->
           <div class="form-group">
             <label>Option 3</label>
@@ -368,14 +352,7 @@
           </div>
         </div>
 
-        <div class="custom-file col-sm-3">
-            <div class="form-group">
-                <label>Choose File</label>
-                <input type="file" class=" form-control">
-              </div>
-          </div>
-
-        <div class="col-sm-3">
+        <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
             <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype3" name="customRadio3">
             <label for="Radiotype3" class="custom-control-label">Is_Answer</label>
@@ -387,7 +364,7 @@
 
 
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <!-- textarea -->
           <div class="form-group">
             <label>Option 4</label>
@@ -395,14 +372,7 @@
           </div>
         </div>
 
-        <div class="custom-file col-sm-3">
-            <div class="form-group">
-                <label>Choose File</label>
-                <input type="file" class=" form-control">
-              </div>
-          </div>
-
-        <div class="col-sm-3">
+        <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
             <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype4" name="customRadio3">
             <label for="Radiotype4" class="custom-control-label">Is_Answer</label>
@@ -440,7 +410,9 @@
 
 
 
-
+<script>
+  const questionurl="{{route('question.store')}}";
+</script>
 
 <script type="text/javascript" src="{{asset('asset/js/question/typeOption.js')}}"></script>
 

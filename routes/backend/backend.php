@@ -26,6 +26,7 @@ Route::middleware('auth:admin')->prefix('questions')->name('question.')->group(f
 
 
     Route::get('add',[QuestionsController::class,'index'])->name('add');
+    Route::post('store',[QuestionsController::class,'store'])->name('store');
 
 });
 
