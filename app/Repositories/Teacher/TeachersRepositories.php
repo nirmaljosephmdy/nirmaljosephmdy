@@ -9,14 +9,6 @@ use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 class TeachersRepositories
 {
 
-
-    public function fetchstaff(Request $request)
-    {
-        //
-
-    }
-
-
     public static function getTeacherDetails($id)
     {
         return Admin::find($id);

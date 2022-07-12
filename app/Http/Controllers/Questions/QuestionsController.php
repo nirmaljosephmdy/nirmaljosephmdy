@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Questions;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Question\QuestionsRepository;
 use Illuminate\Http\Request;
 
 class QuestionsController extends Controller
@@ -36,7 +37,9 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->question);
+        $Questions  = $request->all();
+        QuestionsRepository::store($Questions);
+        
     }
 
     /**

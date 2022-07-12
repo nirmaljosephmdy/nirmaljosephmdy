@@ -4,6 +4,8 @@ $(document).ready(function(){
     $('#type').on ("change",function(event)
 
     {
+        $('#submit').html('Submit');
+        $('#submit').attr('disabled',false);
         event.preventDefault();
 
         $.ajaxSetup({
@@ -74,28 +76,102 @@ $(document).ready(function(){
 $('#submit').click(function(e){
 
     e.preventDefault();
+    var Qtype=$('#type').val();
+    console.log(Qtype);
     $('#submit').html('Please wait...');
     $('#submit').attr('disabled',true);
+// ----------------------------------------------------------------------------------------Qtype 0
+    if(Qtype==0)
+    {
+        $.ajax({
+
+            url        : questionurl,
+            type       : "POST",
     
-    $.ajax({
+    
+            data        : {
+                type      : $('#type').val(),
+                question  : $('#question').val(),
+                Optiona   : $('#optiona').val(),
+                Optionb   : $('#optionb').val(),
+                Optionc   : $('#optionc').val(),
+                Optiond   : $('#optiond').val(),
+                radio     : $("input[name='customRadio2']:checked").val(),
+    
+            },
+            
+            success     :function(_response)
+            {
+                $('#submit').attr('disabled',false);
+                $('#submit').html('submit');
+            }
+    
+    });
 
-        url        : questionurl,
-        type        : "POST",
-        data        : {
-            Optiona   : $('#optiona').val(),
-            Optionb   : $('#optionb').val(),
-            Optionc   : $('#optionc').val(),
-            Optiond   : $('#optiond').val(),
-            question  : $('#question').val(),
 
-        },
-        success     :function(_response)
-        {
-            $('#submit').attr('disabled',false);
-            $('#submit').html('submit');
-        }
+    }
+// --------------------------------------------------------------------------------------------Qtype 1
+    if(Qtype==1)
+    {
+        $.ajax({
 
-});
+            url        : questionurl,
+            type       : "POST",
+    
+    
+            data        : {
+                type      : $('#type').val(),
+                question  : $('#questionn').val(),
+                Optiona   : $('#imagea').val(),
+                Optionb   : $('#imageb').val(),
+                Optionc   : $('#imagec').val(),
+                Optiond   : $('#imaged').val(),
+                radio     : $("input[name='Radio2']:checked").val(),
+    
+            },
+            
+            success     :function(_response)
+            {
+                $('#submit').attr('disabled',false);
+                $('#submit').html('submit');
+            }
+    
+    });
+
+    }
+
+    // -----------------------------------------------------------------------------------------------Qtype 2
+
+    if(Qtype==2)
+    {
+        $.ajax({
+
+            url        : questionurl,
+            type       : "POST",
+    
+    
+            data        : {
+                type      : $('#type').val(),
+                question  : $('#questionnn').val(),
+                qimage    : $('#qimage').val(),
+                Optiona   : $('#optionna').val(),
+                Optionb   : $('#optionnb').val(),
+                Optionc   : $('#optionnc').val(),
+                Optiond   : $('#optionnd').val(),
+                radio     : $("input[name='customRadio3']:checked").val(),
+    
+            },
+            
+            success     :function(_response)
+            {
+                $('#submit').attr('disabled',false);
+                $('#submit').html('submit');
+            }
+    
+    });
+
+    }
+    
 
 
 

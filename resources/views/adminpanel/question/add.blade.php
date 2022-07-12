@@ -95,7 +95,7 @@
 
                     <div class="col-sm-5">
                     <div class="custom-control custom-radio float-right">
-                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radio1" name="customRadio2">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="1" type="radio" id="Radio1" name="customRadio2">
                         <label for="Radio1" class="custom-control-label">Is_Answer</label>
                       </div>
                   </div>
@@ -115,7 +115,7 @@
 
                     <div class="col-sm-5">
                     <div class="custom-control custom-radio float-right">
-                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radio2" name="customRadio2">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="2" type="radio" id="Radio2" name="customRadio2">
                         <label for="Radio2" class="custom-control-label">Is_Answer</label>
                       </div>
                   </div>
@@ -135,7 +135,7 @@
 
                     <div class="col-sm-5">
                     <div class="custom-control custom-radio float-right">
-                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radio3" name="customRadio2">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="3" type="radio" id="Radio3" name="customRadio2">
                         <label for="Radio3" class="custom-control-label">Is_Answer</label>
                       </div>
                   </div>
@@ -155,7 +155,7 @@
 
                     <div class="col-sm-5">
                     <div class="custom-control custom-radio float-right">
-                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radio4" name="customRadio2">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" value="4" id="Radio4" name="customRadio2">
                         <label for="Radio4" class="custom-control-label">Is_Answer</label>
                       </div>
                   </div>
@@ -180,7 +180,7 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Question</label>
-            <textarea class="form-control" name="question" id="question" rows="1" placeholder="Enter Question"></textarea>
+            <textarea class="form-control" name="questionn" id="questionn" rows="1" placeholder="Enter Question"></textarea>
           </div>
         </div>
       </div>
@@ -194,7 +194,7 @@
             <label>Option 1</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="optiona" name="optiona" class=" form-control">
+                  <input type="file" id="imagea" name="optiona" class=" form-control">
                 </div>
             </div>
           </div>
@@ -202,7 +202,7 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="type1" name="Radio2">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="1" type="radio" id="type1" name="Radio2">
             <label for="type1" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
@@ -217,7 +217,7 @@
             <label>Option 2</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="optionb" name="optionb" class=" form-control">
+                  <input type="file" id="imageb" name="optionb" class=" form-control">
                 </div>
             </div>
           </div>
@@ -225,7 +225,7 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="type2" name="Radio2">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="2" type="radio" id="type2" name="Radio2">
             <label for="type2" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
@@ -239,7 +239,7 @@
             <label>Option 3</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="optionc" name="optionc" class=" form-control">
+                  <input type="file" id="imagec" name="optionc" class=" form-control">
                 </div>
             </div>
           </div>
@@ -247,7 +247,7 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="type3" name="Radio2">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="3" type="radio" id="type3" name="Radio2">
             <label for="type3" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
@@ -262,7 +262,7 @@
             <label>Option 4</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="optiond" name="optiond" class=" form-control">
+                  <input type="file" id="imaged" name="optiond" class=" form-control">
                 </div>
             </div>
           </div>
@@ -270,7 +270,7 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="type4" name="Radio2">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="4" type="radio" id="type4" name="Radio2">
             <label for="type4" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
@@ -292,14 +292,14 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Question</label>
-            <textarea class="form-control" rows="1" placeholder="Enter Question"></textarea>
+            <textarea class="form-control" id="questionnn" name="questionnn" rows="1" placeholder="Enter Question"></textarea>
           </div>
         </div>
 
         <div class="custom-file col-sm-5">
           <div class="form-group">
             <label><span></span></label>
-              <input type="file" class=" form-control">
+              <input type="file" id="qimage" name="qimage" class=" form-control">
             </div>
         </div>
       </div>
@@ -310,7 +310,7 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 1</label>
-            <input type="text" class="form-control" rows="1" placeholder="Enter ...">
+            <input type="text" class="form-control" id="optionna" name="optionna" rows="1" placeholder="Enter Question">
           </div>
         </div>
 
@@ -329,7 +329,7 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 2</label>
-            <input type="text" class="form-control" rows="1" placeholder="Enter ...">
+            <input type="text" class="form-control" name="optionnb" id="optionnb" rows="1" placeholder="Enter ...">
           </div>
         </div>
 
@@ -348,7 +348,7 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 3</label>
-            <input type="text" class="form-control" rows="1" placeholder="Enter ...">
+            <input type="text" class="form-control" rows="1" name="optionnc" id="optionnc" placeholder="Enter ...">
           </div>
         </div>
 
@@ -368,7 +368,7 @@
           <!-- textarea -->
           <div class="form-group">
             <label>Option 4</label>
-            <input type="text" class="form-control" rows="1" placeholder="Enter ...">
+            <input type="text" class="form-control" rows="1" name="optionnd" id="optionnd" placeholder="Enter ...">
           </div>
         </div>
 
