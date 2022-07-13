@@ -8,7 +8,9 @@
 
 <div class="content-wrapper">
   
-
+<!-- form start -->
+<form id="formdata" autocomplete="off">
+  @csrf
     <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
@@ -35,14 +37,13 @@
           <h3 class="card-title">Question Type</h3>
         </div>
         <!-- /.card-header -->
-        <!-- form start -->
-        <form autocomplete="off">
+        
           <div class="card-body">
 
 
             <div class="form-group">
                 <label>Question Type</label>
-                <select class="form-control select2" id="type" style="width: 100%;">
+                <select class="form-control select2" name="type" id="type" style="width: 100%;">
 
                   @foreach ($Qtypes as $key=> $Qtype )
                   <option value="{{$key}}">{{$Qtype}}</option>
@@ -84,6 +85,8 @@
 
 
 
+
+
                   <div class="row">
                     <div class="col-sm-7">
                       <!-- textarea -->
@@ -95,7 +98,7 @@
 
                     <div class="col-sm-5">
                     <div class="custom-control custom-radio float-right">
-                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="1" type="radio" id="Radio1" name="customRadio2">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="1"  type="radio" id="Radio1" name="customRadio2">
                         <label for="Radio1" class="custom-control-label">Is_Answer</label>
                       </div>
                   </div>
@@ -115,7 +118,7 @@
 
                     <div class="col-sm-5">
                     <div class="custom-control custom-radio float-right">
-                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="2" type="radio" id="Radio2" name="customRadio2">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="2"  type="radio" id="Radio2" name="customRadio2">
                         <label for="Radio2" class="custom-control-label">Is_Answer</label>
                       </div>
                   </div>
@@ -155,11 +158,21 @@
 
                     <div class="col-sm-5">
                     <div class="custom-control custom-radio float-right">
-                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" value="4" id="Radio4" name="customRadio2">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" value="4" type="radio"  id="Radio4" name="customRadio2">
                         <label for="Radio4" class="custom-control-label">Is_Answer</label>
                       </div>
                   </div>
                   </div>
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputWarning">Maximum Marks</label>
+                    <input type="text" class="form-control is-warning" id="points" placeholder="Enter Mark">
+                  </div>
+                </div>
+                </div>
+                  
 
               </div>
 
@@ -194,7 +207,7 @@
             <label>Option 1</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="imagea" name="optiona" class=" form-control">
+                  <input type="file" id="opta" name="opta" class=" form-control">
                 </div>
             </div>
           </div>
@@ -217,7 +230,7 @@
             <label>Option 2</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="imageb" name="optionb" class=" form-control">
+                  <input type="file" id="optb" name="optb" class=" form-control">
                 </div>
             </div>
           </div>
@@ -239,7 +252,7 @@
             <label>Option 3</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="imagec" name="optionc" class=" form-control">
+                  <input type="file" id="optc" name="optc" class=" form-control">
                 </div>
             </div>
           </div>
@@ -262,7 +275,7 @@
             <label>Option 4</label>
             <div class="custom-file col-sm-7">
               <div class="form-group">
-                  <input type="file" id="imaged" name="optiond" class=" form-control">
+                  <input type="file" id="optd" name="optd" class=" form-control">
                 </div>
             </div>
           </div>
@@ -275,6 +288,15 @@
           </div>
       </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+      <div class="form-group">
+        <label class="col-form-label" for="inputWarning">Maximum Marks</label>
+        <input type="text" class="form-control is-warning" id="points2" name="points2" placeholder="Enter Mark">
+      </div>
+    </div>
+    </div>
 
 </div>
 {{-- ---------------------------------------------------------------End---------------------------------------------------------------------------- --}}
@@ -316,7 +338,7 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype1" name="customRadio3">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype1" value="1" name="customRadio3">
             <label for="Radiotype1" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
@@ -335,7 +357,7 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype2" name="customRadio3">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype2" value="2" name="customRadio3">
             <label for="Radiotype2" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
@@ -354,7 +376,7 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype3" name="customRadio3">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype3" value="3" name="customRadio3">
             <label for="Radiotype3" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
@@ -374,13 +396,21 @@
 
         <div class="col-sm-5">
         <div class="custom-control custom-radio float-right">
-            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype4" name="customRadio3">
+            <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="Radiotype4" value="4" name="customRadio3">
             <label for="Radiotype4" class="custom-control-label">Is_Answer</label>
           </div>
       </div>
       </div>
 
 
+      <div class="row">
+        <div class="col-sm-3">
+      <div class="form-group">
+        <label class="col-form-label" for="inputWarning">Maximum Marks</label>
+        <input type="text" class="form-control is-warning" name="points3" id="points3" placeholder="Enter Mark">
+      </div>
+    </div>
+    </div>
 
 
 

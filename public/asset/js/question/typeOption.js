@@ -76,6 +76,13 @@ $(document).ready(function(){
 $('#submit').click(function(e){
 
     e.preventDefault();
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var Qtype=$('#type').val();
     console.log(Qtype);
     $('#submit').html('Please wait...');
@@ -91,6 +98,7 @@ $('#submit').click(function(e){
     
             data        : {
                 type      : $('#type').val(),
+                points    : $('#points').val(),
                 question  : $('#question').val(),
                 Optiona   : $('#optiona').val(),
                 Optionb   : $('#optionb').val(),
@@ -100,10 +108,15 @@ $('#submit').click(function(e){
     
             },
             
-            success     :function(_response)
+            success     :function(response)
             {
+                var json = $.parseJSON(response);
+                console.log(json);
                 $('#submit').attr('disabled',false);
                 $('#submit').html('submit');
+                window.location=json.redirect_url;
+                window.location.reload();
+
             }
     
     });
@@ -111,61 +124,28 @@ $('#submit').click(function(e){
 
     }
 // --------------------------------------------------------------------------------------------Qtype 1
-    if(Qtype==1)
-    {
-        $.ajax({
 
-            url        : questionurl,
-            type       : "POST",
-    
-    
-            data        : {
-                type      : $('#type').val(),
-                question  : $('#questionn').val(),
-                Optiona   : $('#imagea').val(),
-                Optionb   : $('#imageb').val(),
-                Optionc   : $('#imagec').val(),
-                Optiond   : $('#imaged').val(),
-                radio     : $("input[name='Radio2']:checked").val(),
-    
-            },
-            
-            success     :function(_response)
-            {
-                $('#submit').attr('disabled',false);
-                $('#submit').html('submit');
-            }
-    
-    });
-
-    }
 
     // -----------------------------------------------------------------------------------------------Qtype 2
 
-    if(Qtype==2)
+    if(Qtype==2 || Qtype==1)
     {
         $.ajax({
 
             url        : questionurl,
             type       : "POST",
+            data       : new FormData($('#formdata')[0]),
+            contentType: false,
+            processData: false,
     
-    
-            data        : {
-                type      : $('#type').val(),
-                question  : $('#questionnn').val(),
-                qimage    : $('#qimage').val(),
-                Optiona   : $('#optionna').val(),
-                Optionb   : $('#optionnb').val(),
-                Optionc   : $('#optionnc').val(),
-                Optiond   : $('#optionnd').val(),
-                radio     : $("input[name='customRadio3']:checked").val(),
-    
-            },
             
-            success     :function(_response)
+            success     :function(response)
             {
+                var json = $.parseJSON(response);
                 $('#submit').attr('disabled',false);
                 $('#submit').html('submit');
+                window.location=json.redirect_url;
+                window.location.reload();
             }
     
     });

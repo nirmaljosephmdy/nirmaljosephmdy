@@ -81,7 +81,7 @@ class TeachersController extends Controller
 
              alert()->success('Added Successfully');
 
-             return json_encode(['status'=>true,"redirect_url"=>url('index')]);
+             return json_encode(['status'=>true,"redirect_url"=>url('teacher/index')]);
 
         }
     }

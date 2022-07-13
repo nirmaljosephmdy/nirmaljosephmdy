@@ -29,8 +29,8 @@ $(document).ready(function(){
 
                 $('#submit').html('Submit');
                 $("#submit"). attr("disabled", false);
-                    window.location=response.redirect_url;
-                console.log(response.redirect_url);
+                var json = $.parseJSON(response);
+                    window.location=json.redirect_url;
 
             }
 

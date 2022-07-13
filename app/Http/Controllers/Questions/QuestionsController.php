@@ -39,6 +39,7 @@ class QuestionsController extends Controller
     {
         $Questions  = $request->all();
         QuestionsRepository::store($Questions);
+        return json_encode(['status'=>true,"redirect_url"=>url('questions/add')]);
         
     }
 
