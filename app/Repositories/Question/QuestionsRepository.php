@@ -180,6 +180,57 @@ use App\Models\Question;
 
 
 
+
+    public static function edit($id) 
+    {
+           return Question::find($id);
+    }
+
+
+    public static function update($details)
+    {
+        $QuestionsTable                 = new Question;
+        $QuestionsTable->exists         = true;
+        $QuestionsTable->id             = $details['id'];
+
+        $QuestionsTable->question       = $details['question'];
+        $QuestionsTable->points         = $details['points3'];
+        
+        
+        $updatearray=[
+
+            [
+                'answer_option_id'      => 1, 
+                'OptA'                  => $details['option0'],
+                'is_answer'             => $details['customRadio2']==1 ? true : false,  ],
+                
+            [
+                'answer_option_id'      => 2, 
+                'OptA'                  => $details['option1'],
+                'is_answer'             => $details['customRadio2']==2 ? true : false,  ],
+
+            [
+                'answer_option_id'      => 3, 
+                'OptA'                  => $details['option2'],
+                'is_answer'             => $details['customRadio2']==3 ? true : false,  ],
+                
+            [
+                'answer_option_id'      => 4, 
+                'OptA'                  => $details['option3'],
+                'is_answer'             => $details['customRadio2']==4 ? true : false,  ]
+                
+            ];
+            
+            $QuestionsTable->answer_options = $updatearray;
+
+            $QuestionsTable->save();
+
+            // try this update first
+
+    }
+
+
+
  }
 
 

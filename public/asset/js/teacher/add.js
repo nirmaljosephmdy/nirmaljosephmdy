@@ -29,7 +29,7 @@ $(document).ready(function(){
 
                 $('#submit').html('Submit');
                 $("#submit"). attr("disabled", false);
-                var json = $.parseJSON(response);
+                const json = $.parseJSON(response);
                     window.location=json.redirect_url;
 
             }

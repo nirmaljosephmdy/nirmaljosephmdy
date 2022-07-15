@@ -25,8 +25,12 @@ Route::middleware('auth:admin')->prefix('teacher')->name('teacher.')->group(func
 Route::middleware('auth:admin')->prefix('questions')->name('question.')->group(function (){
 
 
+    Route::get('show',[QuestionsController::class,'show'])->name('show');
+    Route::get('datatable',[QuestionsController::class,'datatable'])->name('datatable');
     Route::get('add',[QuestionsController::class,'index'])->name('add');
     Route::post('store',[QuestionsController::class,'store'])->name('store');
+    Route::get('{question_id}/edit',[QuestionsController::class,'edit'])->name('edit');
+    Route::post('update',[QuestionsController::class,'update'])->name('update');
 
 });
 
