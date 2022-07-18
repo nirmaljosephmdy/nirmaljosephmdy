@@ -11,7 +11,6 @@ Route::get('register',[LoginController::class,'register'])->name('register');
 
 Route::get('logout',[LoginController::class,'logout'])->name('login.logout');
 
-;
 
 
 

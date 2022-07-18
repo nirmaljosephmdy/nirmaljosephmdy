@@ -94,7 +94,7 @@
                           <option selected disabled>Choose</option>
 
                           @foreach ($genders as $gender )
-                          <option value="{{$gender}}">{{$gender}}</option>
+                          <option value="{{$gender}}" {{$teacherDetails->gender==$gender ? 'selected':'' }}>{{$gender}}</option>
                           @endforeach
 
                         </select>

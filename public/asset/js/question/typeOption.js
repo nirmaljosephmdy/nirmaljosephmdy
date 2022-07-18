@@ -83,7 +83,7 @@ $('#submit').click(function(e){
         }
     });
 
-    var Qtype=$('#type').val();
+    const Qtype=$('#type').val();
     console.log(Qtype);
     $('#submit').html('Please wait...');
     $('#submit').attr('disabled',true);
@@ -110,11 +110,10 @@ $('#submit').click(function(e){
             
             success     :function(response)
             {
-                var json = $.parseJSON(response);
-                console.log(json);
+                const jsonn = $.parseJSON(response);
                 $('#submit').attr('disabled',false);
                 $('#submit').html('submit');
-                window.location=json.redirect_url;
+                window.location=jsonn.redirect_url;
                 window.location.reload();
 
             }
@@ -141,7 +140,7 @@ $('#submit').click(function(e){
             
             success     :function(response)
             {
-                var json = $.parseJSON(response);
+                const json = $.parseJSON(response);
                 $('#submit').attr('disabled',false);
                 $('#submit').html('submit');
                 window.location=json.redirect_url;

@@ -6,6 +6,12 @@
     $Qtypes=(config('options.QType'))
 @endphp
 
+@if (Session::has('sweet_alert.alert'))
+<script>
+  swal({!! Session::get('sweet_alert.alert') !!});
+</script>
+@endif
+
 <div class="content-wrapper">
   
 <!-- form start -->
@@ -19,7 +25,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{route('question.add')}}">Question</a></li>
+                <li class="breadcrumb-item"><a href="{{route('question.show')}}">Question</a></li>
                 <li class="breadcrumb-item active">Add</li>
               </ol>
             </div>
@@ -253,7 +259,7 @@
             <div class="custom-file col-sm-7">
               <div class="form-group">
                   <input type="file" id="optc" name="optc" class=" form-control">
-                </div>
+                </div>.
             </div>
           </div>
         </div>
