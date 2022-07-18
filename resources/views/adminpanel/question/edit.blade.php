@@ -221,7 +221,6 @@ select[readonly]
   <div id="2">
 
   
-  
     <div class="row">
         <div class="col-sm-7">
           <!-- textarea -->
@@ -266,7 +265,7 @@ select[readonly]
         <div class="col-sm-3">
       <div class="form-group">
         <label class="col-form-label" for="inputWarning">Maximum Marks</label>
-        <input type="text" value="{{$QuestionDetails['points']}}" class="form-control is-warning" name="points3" id="points3" placeholder="Enter Mark">
+        <input type="text" value="{{$QuestionDetails['points']}}" class="form-control is-warning" name="points1" id="points1" placeholder="Enter Mark">
       </div>
     </div>
     </div>

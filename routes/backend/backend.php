@@ -31,6 +31,7 @@ Route::middleware('auth:admin')->prefix('questions')->name('question.')->group(f
     Route::post('store',[QuestionsController::class,'store'])->name('store');
     Route::get('{question_id}/edit',[QuestionsController::class,'edit'])->name('edit');
     Route::post('update',[QuestionsController::class,'update'])->name('update');
+    Route::get('remove/{remove_id}',[QuestionsController::class,'destroy'])->name('remove');
 
 });
 

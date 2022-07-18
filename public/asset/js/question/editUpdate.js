@@ -28,6 +28,8 @@ $(document).ready(function(){
             success     : function(response){
                 // $('#submit').html('submit');
                 // $('#submit').attr('disabled',false);
+                const json =$.parseJSON(response);
+                window.location=json.redirect_url;
 
 
             }

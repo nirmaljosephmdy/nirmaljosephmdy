@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Questions;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
 use App\Repositories\Question\QuestionsRepository;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 
 class QuestionsController extends Controller
@@ -40,7 +41,8 @@ class QuestionsController extends Controller
     {
         $Questions  = $request->all();
         QuestionsRepository::store($Questions);
-        return json_encode(['status'=>true,"redirect_url"=>url('questions/add')]);
+        alert()->success('Question Successfully Added');
+        return json_encode(['status'=>true,"redirect_url"=>url('questions/show')]);
         
     }
 
@@ -79,6 +81,8 @@ class QuestionsController extends Controller
     {
         $updateDetails  = $request->all();
         QuestionsRepository::update($updateDetails);
+        alert()->success('Data Update Successfully');
+        return json_encode(['status'=>true,"redirect_url"=>url('questions/show')]);
         
     }
 
@@ -90,7 +94,10 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Question::find($id)->delete();
+        alert()->success('Removed');
+        return redirect()->route('question.show');
+
     }
 
 
@@ -150,7 +157,7 @@ class QuestionsController extends Controller
                                     "action"    =>'<a href=" '.route('question.edit',['question_id'=>$record->id]).' "  data-id='.$record->id.'  class="btn btn-primary btn-sm actionedit" title="edit category" >
                                                  <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-sm actionDelete" href=" '.route('teacher.remove',['remove'=>$record->id]).'">
+                                        <a class="btn btn-danger btn-sm actionDelete" href=" '.route('question.remove',['remove_id'=>$record->id]).'">
                                             <i class="fas fa-trash"></i>
                                         </a>'
                                 );
