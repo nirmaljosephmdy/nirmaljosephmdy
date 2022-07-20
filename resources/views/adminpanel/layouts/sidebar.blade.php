@@ -107,6 +107,59 @@
         </ul>
       </li> 
 
+      <li class="nav-header">Exam</li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-copy"></i>
+          <p>
+            Exam 
+            <i class="fas fa-angle-left right"></i>
+            <span class="badge badge-info right">2</span>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                View
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('exam.add')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Add
+              </p>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+
+
+
+
+      <li class="nav-header">SignOut</li>
+
+      <li class="nav-item">
+        <a href="{{route('login.logout')}}" class="nav-link">
+          <i class="fa fa-sign-out nav-icon"></i>
+
+          <p>
+            Sign Out
+          </p>
+        </a>
+      </li>
+
 
       {{-- <li class="nav-item">
         <a href="#" class="nav-link">

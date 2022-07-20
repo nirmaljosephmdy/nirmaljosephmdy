@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teachers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Teacher\TeachersRegistrationRequest as TeacherTeachersRegistrationRequest;
 use App\Models\Admin;
 use App\Repositories\Teacher\TeachersRepositories;
 use GrahamCampbell\ResultType\Success;
@@ -57,7 +58,7 @@ class TeachersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeacherTeachersRegistrationRequest $request)
     {
 
         if($request->ajax())
@@ -84,6 +85,7 @@ class TeachersController extends Controller
              return json_encode(['status'=>true,"redirect_url"=>url('teacher/index')]);
 
         }
+        return redirect()->back();
     }
 
     /**
@@ -117,7 +119,7 @@ class TeachersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(TeacherTeachersRegistrationRequest $request)
     {
         $id                     = $request->id;
         $currentInfo            = Admin::find($id);

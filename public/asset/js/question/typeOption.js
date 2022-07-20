@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    $('#submit').hide();
     $("#1,#2").hide();
     $('#type').on ("change",function(event)
 
@@ -53,8 +52,6 @@ $(document).ready(function(){
                     
         //         });
 
-
-        $('#submit').show();
         
         
                 
@@ -130,6 +127,7 @@ $('#submit').click(function(e){
     if(Qtype==2 || Qtype==1)
     {
         $.ajax({
+            
 
             url        : questionurl,
             type       : "POST",

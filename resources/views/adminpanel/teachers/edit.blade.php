@@ -47,6 +47,9 @@
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control"  value="{{$teacherDetails->name}}" name="name" id="name" placeholder="Name">
+                    @error('name')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                 </div>
 
@@ -55,6 +58,9 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
                       <input type="email" class="form-control"  value="{{$teacherDetails->email}}" name="email" id="email" placeholder="Email">
+                      @error('email')
+                      <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -63,6 +69,9 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Profile Pic</label>
                     <div class="col-sm-10">
                       <input type="file" class="form-control" value="{{$teacherDetails->profilepic}}" name="profilepic" id="profilepic">
+                      @error('profilepic')
+                      <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -81,11 +90,14 @@
                           @endforeach
 
                         </select>
+                        @error('usertype')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    
                         <div>
                       </div>
                         </div>
                       </div>
-                  
 
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Gender</label>
@@ -98,6 +110,9 @@
                           @endforeach
 
                         </select>
+                        @error('gender')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <div>
                       </div>
                         </div>
@@ -115,8 +130,6 @@
         </div>
 
 </div>
-
-
 
 
 

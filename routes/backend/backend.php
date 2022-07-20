@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Exam\ExamController;
 use App\Http\Controllers\Questions\QuestionsController;
 use App\Http\Controllers\Teachers\TeachersController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,22 @@ Route::middleware('auth:admin')->prefix('questions')->name('question.')->group(f
     Route::get('{question_id}/edit',[QuestionsController::class,'edit'])->name('edit');
     Route::post('update',[QuestionsController::class,'update'])->name('update');
     Route::get('remove/{remove_id}',[QuestionsController::class,'destroy'])->name('remove');
+
+});
+
+
+
+Route::middleware('auth:admin')->prefix('exam')->name('exam.')->group(function(){
+
+
+    Route::get('add',[ExamController::class,'index'])->name('add');
+
+
+
+
+
+
+
 
 });
 
