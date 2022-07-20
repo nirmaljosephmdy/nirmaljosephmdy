@@ -1,6 +1,55 @@
 @extends('adminpanel/layouts/layout')
 
 @section('contents')
+<style>
+
+/* Styles */
+
+body {
+  font-family: "Open Sans";
+  font-size: 14px;
+  
+}
+
+
+form {
+  background: #2c3e50;
+  color: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+form label,
+form input,
+form button {
+  border: 0;
+
+  display: block;
+  width: 100%;
+}
+form input {
+  height: 25px;
+  line-height: 25px;
+  background: #fff;
+  color: #000;
+  padding: 0 6px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+form button {
+  height: 30px;
+  line-height: 30px;
+  background: #e67e22;
+  color: #fff;
+  margin-top: 10px;
+  cursor: pointer;
+}
+form .error {
+  color: #ff0000;
+}
+
+</style>
 
 @php
     $usertypes= (config('options.usertype'));
@@ -43,17 +92,18 @@
               <h3 class="card-title">Teachers Registration Form</h3>
             </div>
 
-            <form class="form-horizontal" id="formdata" method="POST" autocomplete="off" action="javascript:void(0)" enctype="multipart/form-data">
+            <form class="form-horizontal" id="formdata" name="formdata" method="POST" autocomplete="off" action="javascript:void(0)" enctype="multipart/form-data">
                 @csrf
 
               <div class="card-body">
 
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label> 
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                   </div>
                 </div>
+
 
 
                 <div class="form-group row">
@@ -88,8 +138,8 @@
                         </select>
                         <div>
                       </div>
-                        </div>
-                      </div>
+                    </div>
+                  </div>
                   
 
                       <div class="form-group row">
@@ -103,13 +153,13 @@
                           @endforeach
 
                         </select>
-                        <div>
+
                       </div>
-                        </div>
                     </div>
+
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" id="submit" class="btn btn-info">Add Staff</button>
+                <button type="submit" id="submit" class="btn btn-info">Submit</button>
                 <button class="btn btn-default float-right"><a href="{{route('teacher.index')}}">Cancel</a></button>
               </div>
               <!-- /.card-footer -->
@@ -122,26 +172,14 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
+@endsection
+@push('js')
 
 <script>
-        const  addurl   = "{{route('teacher.store')}}";
+  const  addurl   = "{{route('teacher.store')}}";
 </script>
 
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script type="text/javascript" src="{{asset('asset/js/teacher/add.js')}}"></script>
 
-
-
-
-
-@endsection
+@endpush

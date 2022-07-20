@@ -1,34 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Usermanagement;
+namespace App\Http\Controllers\Exam;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Auth\LoginRequest;
-use App\Models\Admin;
-use Illuminate\Contracts\Session\Session;
+use App\Models\Question;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-
-class LoginController extends Controller
+class ExamController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(LoginRequest $request)
+    public function index()
     {
-
-        if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember')))
-        {
-            $teacherCount =Admin::where('usertype',0)->count();
-            return view('adminpanel.index',compact('teacherCount'));
-        }
-        else
-        {
-            return redirect()->back();
-        }
+        $questions =Question::get()->all();
+        return view('adminpanel.exam.add',compact('questions'));
+        
     }
 
     /**
@@ -36,10 +25,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
-
+        //
     }
 
     /**
@@ -97,19 +85,4 @@ class LoginController extends Controller
     {
         //
     }
-
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->flush();
-        $request->session()->regenerate();
-        return redirect('/');
-    }
-
-    public function register()
-    {
-        return view('login.register');
-    }
-
 }

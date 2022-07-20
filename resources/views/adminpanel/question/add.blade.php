@@ -1,6 +1,14 @@
 @extends('adminpanel.layouts.layout')
 
 @section('contents')
+<style>
+  body {
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+
+
+</style>
 
 @php
     $Qtypes=(config('options.QType'))
@@ -13,6 +21,7 @@
 @endif
 
 <div class="content-wrapper">
+
   
 <!-- form start -->
 <form id="formdata" autocomplete="off">
@@ -259,7 +268,7 @@
             <div class="custom-file col-sm-7">
               <div class="form-group">
                   <input type="file" id="optc" name="optc" class=" form-control">
-                </div>.
+                </div>
             </div>
           </div>
         </div>
