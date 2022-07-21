@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Exam;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Exam\ExamRequest;
+use App\Models\Exam;
 use App\Models\Question;
+use App\Repositories\Exam\ExamsRepository;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -36,9 +39,25 @@ class ExamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExamRequest $request)
     {
-        //
+        $examdetails=$request->all();
+        ExamsRepository::store($examdetails);
+        return json_encode(['status'=>true,"redirect_url"=>url('exam/store2')]);
+    }
+
+    public function store2()
+    {
+        $examType=[];
+        $exam = Exam::get();
+        foreach($exam as $key=> $examTypee)
+        {
+            $examType[$key]['id']=$examTypee['id'];
+            $examType[$key]['title']=$examTypee['title'];
+
+        }
+        return view('adminpanel.exam.add2',compact('examType'));
+
     }
 
     /**

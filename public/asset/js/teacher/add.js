@@ -40,7 +40,7 @@ $(document).ready(function(){
         
                     url     : addurl,
                     type    : "post",
-                    data: new FormData($('#formdata')[0]),
+                    data    : new FormData($('#formdata')[0]),
                     contentType: false,
                     processData: false,
                     success : function(response){  
