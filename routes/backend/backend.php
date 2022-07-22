@@ -44,6 +44,7 @@ Route::middleware('auth:admin')->prefix('exam')->name('exam.')->group(function()
     Route::get('add',[ExamController::class,'index'])->name('add');
     Route::post('store',[ExamController::class,'store'])->name('store');
     Route::get('store2',[ExamController::class,'store2'])->name('add2');
+    Route::get('show/{id}',[ExamController::class,'show'])->name('add3');
 
 
 
