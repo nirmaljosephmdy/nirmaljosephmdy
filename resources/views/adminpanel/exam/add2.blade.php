@@ -45,14 +45,40 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label" >Choose Exam</label>
                 <div class="col-sm-10">
-                <select name="usertype" class="custom-select form-control ">
+                <select name="examtype" id="examtype" class="custom-select form-control ">
                     <option selected disabled>Choose</option>
 
                   @foreach ($examType as $key=>$exam)
-                  <option value="{{$exam['id']}}">{{$exam['title']}}</option>
+                  <option data-href="" value="{{$exam['id']}}">{{$exam['title']}}</option>
                   @endforeach
 
                 </select>
+            </div>
+          </div>
+
+
+          <div class="card " id="table">
+            <div class="card-header">
+              <h3 class="card-title">Ques</h3>
+              <a href="{{route('teacher.create')}}"><button class="card-title float-right btn btn-primary ">Add Staff</button></a>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="examTable" class="table table-bordered table-hover">
+                <caption></caption>
+                <thead>
+                <tr class="bg-warning">
+                  <th id="">Sl.No</th>
+                  <th id="">Questions</th>
+                  <th id="">Mark</th>
+                  <th id="">Question Type</th>
+                  <th id="" colspan="2">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+        
+                </tbody>
+              </table>
             </div>
           </div>
 
@@ -66,8 +92,8 @@
                 
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" id="submit" class="btn btn-info">Previous</button>
-            <button type="submit" id="submit" class="btn btn-info">Next</button>
+            <a href="{{route('exam.add')}}" class="btn btn-info"> Previous</a>
+            <a href="#" class="btn btn-info"> Next</a>
             <button class="btn btn-default float-right"><a href="{{route('teacher.index')}}">Cancel</a></button>
           </div>
           </div>
@@ -80,29 +106,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 
 
 
+<script>
+   const examreg2url="{{route('exam.add3','')}}";
+</script>
 
-
+@push('js')
+<script src="{{asset('asset/js/exam/examregister2.js')}}"></script>
+@endpush
 
 
 

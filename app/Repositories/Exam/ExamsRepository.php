@@ -19,6 +19,13 @@ class ExamsRepository
     }
 
 
+    public static function datatable($id)
+    {
+        dd($id);
+        
+    }
+
+
 
 
 
