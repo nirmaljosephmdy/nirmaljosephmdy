@@ -7,7 +7,6 @@ $(document).ready(function(){
 
                 title               : "required",
                 instructions        : "required",
-                questions           : "required",
             },
 
             submitHandler   :function(_form)

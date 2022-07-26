@@ -54,11 +54,11 @@
               </div>
 
 
-              <div class="card card-default">
-
+              {{-- ---------------------------------------------------------------------------------------------------------------------DuallistBox--------------------------- --}}
+              {{-- <div class="card card-default"> --}}
 
                 <!-- /.card-header -->
-                <div class="card-body">
+                {{-- <div class="card-body">
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
@@ -78,9 +78,9 @@
                     <!-- /.col -->
                   </div>
                   <!-- /.row -->
-                </div>
+                </div> --}}
                 <!-- /.card-body -->
-              </div>
+              {{-- </div> --}}
 
 
 
