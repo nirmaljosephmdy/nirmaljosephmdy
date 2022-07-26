@@ -115,7 +115,7 @@
           <p>
             Exam 
             <i class="fas fa-angle-left right"></i>
-            <span class="badge badge-info right">2</span>
+            <span class="badge badge-info right">3</span>
           </p>
         </a>
         <ul class="nav nav-treeview">
@@ -135,6 +135,15 @@
               <i class="far fa-circle nav-icon"></i>
               <p>
                 Add
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('exam.add2')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                All Exams
               </p>
             </a>
           </li>

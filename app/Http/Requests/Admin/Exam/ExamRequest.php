@@ -27,7 +27,6 @@ class ExamRequest extends FormRequest
 
             'title'             => 'required',
             'instructions'      => 'required',
-            'questions'         => 'required',
             
         ];
     }

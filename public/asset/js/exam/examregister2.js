@@ -1,5 +1,7 @@
 $(document).ready(function(){
+    $('#table').hide();
     $('#examtype').on("change",function(e){
+        $('#table').show();
         e.preventDefault();
         let id=($(this).val());
         $('#examTable').DataTable({
@@ -9,15 +11,13 @@ $(document).ready(function(){
             ajax        :examreg2url+'/'+ id,
             
     
-            // columns     :[
+            columns     :[
     
-            // {data   : 'name'},
-            // {data   : 'email'},
-            // {data   : 'permission'},
-            // {data   : 'status'},
-            // {data   : 'gender'},
-            // {data   : 'action'},
-            // ]
+            {data   : 'sl'},
+            {data   : 'question'},
+            {data   : 'points'},
+            {data   : 'action'},
+            ]
         });
 
     });
