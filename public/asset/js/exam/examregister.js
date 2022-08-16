@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    console.log("hai");
+
     $(function(){
 
         $('#formdata').validate({
@@ -21,7 +23,6 @@ $(document).ready(function(){
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-
 
 
 
