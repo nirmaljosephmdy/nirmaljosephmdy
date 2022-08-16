@@ -31,10 +31,10 @@
           <h3 class="card-title">Exam Registration</h3>
         </div>
 
-        <form class="form-horizontal" id="formdata" name="formdata" method="POST" autocomplete="off" action="javascript:void(0)">
-            @csrf
-
-          <div class="card-body">
+        
+        <div class="card-body">
+            <form class="form-horizontal" enctype="multipart/form-data" name="confirm" id="confirm" method="POST" autocomplete="off" action="javascript:void(0)">
+                @csrf
 
 
 
@@ -56,6 +56,140 @@
                 </select>
             </div>
           </div>
+
+
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+              <div class="modal-content">
+                <div class="modal-header btn btn-info">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirm Question</h5>
+                  <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+          
+                  <div class="row">
+          
+          
+                  <div class="col-sm-8 mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Question</label>
+                    <input type="text" class="form-control" name="exampleFormControlInput1" id="exampleFormControlInput1">
+                  </div>
+          
+                  <div class="col-sm-4 mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">Mark</label>
+                    <input type="number" class="form-control is-warning" name="exampleFormControlInput2" id="exampleFormControlInput2">
+                  </div>
+          
+                </div>
+          {{-- -------------------------------------------------------------------------------------------------------------------------------------QuestionType2 --}}
+                <div id="type2">
+          
+                  <div class="mb-3">
+                    <label for="QImage" class="form-label">Upload Ouestion</label>
+                    <input class="form-control" type="file" name="QImage" id="QImage">
+                  </div>
+
+                  <div class="row">
+
+                  <div class="col-sm-6 mb-2">
+                  <img src='' id="questionImage" name="questionImage" width="180px;" height="120" class="mt-2  mb-4" alt="QuestionImg">
+                </div>
+
+                <div class="col-sm-6 mb-2">
+                  <img id="preview-image-before-upload" src="https://www.riobeauty.co.uk/images/product_image_not_found.gif" alt="preview image" width="180px;" height="120">
+                </div>
+              </div>
+          
+          
+          
+                  <div class="row">
+          
+                  <div class="col-sm-8 mb-3">
+                    <label for="OptA" class="form-label">Option 1</label>
+                    <input type="text" class="form-control" name="OptA" id="OptA_0">
+                  </div>
+          
+                  <div class="col-sm-4">
+                    <div class="custom-control custom-radio float-right">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline customRadio2" value="1"  type="radio" id="Radio1" name="customRadio2">
+                        <label for="Radio1" class="custom-control-label">Is_Answer</label>
+                      </div>
+                  </div>
+          
+                </div>
+          
+          
+          
+          
+                <div class="row">
+          
+                  <div class="col-sm-8 mb-3">
+                    <label for="OptB" class="form-label">Option 2</label>
+                    <input type="text" class="form-control" name="OptB" id="OptB_1">
+                  </div>
+          
+                  <div class="col-sm-4">
+                    <div class="custom-control custom-radio float-right">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline customRadio2" value="2"  type="radio" id="Radio2" name="customRadio2">
+                        <label for="Radio2" class="custom-control-label">Is_Answer</label>
+                      </div>
+                  </div>
+          
+                </div>
+          
+          
+          
+          
+                <div class="row">
+          
+                  <div class="col-sm-8 mb-3">
+                    <label for="OptC" class="form-label">Option 3</label>
+                    <input type="text" class="form-control" name="OptC" id="OptC_2">
+                  </div>
+          
+                  <div class="col-sm-4">
+                    <div class="custom-control custom-radio float-right">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline customRadio2" value="3"  type="radio" id="Radio3" name="customRadio2">
+                        <label for="Radio3" class="custom-control-label">Is_Answer</label>
+                      </div>
+                  </div>
+          
+                </div>
+          
+          
+                <div class="row">
+          
+                  <div class="col-sm-8 mb-3">
+                    <label for="OptD" class="form-label">Option 4</label>
+                    <input type="text" class="form-control" name="OptD" id="OptD_3">
+                  </div>
+          
+                  <div class="col-sm-4">
+                    <div class="custom-control custom-radio float-right">
+                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline customRadio2" value="4"  type="radio" id="Radio4" name="customRadio2">
+                        <label for="Radio4" class="custom-control-label">Is_Answer</label>
+                      </div>
+                  </div>
+          
+                </div>
+          
+          
+                </div>
+          
+                {{-- --------------------------------------------------------------------------------------------------------------body --}}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" id="modalsubmit" class="btn btn-warning">Confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
 
 
 
@@ -113,7 +247,7 @@
           </div>
           </div>
           
-            </form>
+            
     </div>
 
 
@@ -124,53 +258,9 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-    <div class="modal-content">
-      <div class="modal-header btn btn-info">
-        <h5 class="modal-title" id="exampleModalLabel">Confirm Question</h5>
-        <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+{{-- <form action="javascript:void(0)" method="POST" enctype="multipart/form-data" name="confirm" id="confirm"> --}}
 
-        <div class="row">
-
-        <div class="col-sm-8 mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Question</label>
-          <input type="text" class="form-control" name="exampleFormControlInput1" id="exampleFormControlInput1">
-        </div>
-
-        <div class="col-sm-4 mb-3">
-          <label for="exampleFormControlInput2" class="form-label">Mark</label>
-          <input type="number" class="form-control is-warning" name="exampleFormControlInput2" id="exampleFormControlInput2">
-        </div>
-
-      </div>
-{{-- -------------------------------------------------------------------------------------------------------------------------------------QuestionType2 --}}
-      <div id="type2">
-
-        <div class="mb-3">
-          <label for="formFileMultiple" class="form-label">Upload Ouestion</label>
-          <input class="form-control" type="file" name="formFile" id="formFile">
-        </div>
-        <img src='' id="questionImage" width="180px;" height="120" class="mt-2  mb-3" alt="QuestionImg">
-
-
-      </div>
-
-
-      {{-- --------------------------------------------------------------------------------------------------------------body --}}
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-warning">Confirm</button>
-      </div>
-    </div>
-  </div>
-</div>
+{{-- </form> --}}
 
 
 
@@ -195,11 +285,35 @@
 <script>
    const examreg2url="{{route('exam.add3','')}}";
    const editurl="{{route('exam.edit','')}}";
+   const updateurl="{{route('exam.update')}}";
+
+      
+      $(document).ready(function (e) {
+       
+         
+         $('#QImage').change(function(){
+                  
+          let reader = new FileReader();
+       
+          reader.onload = (e) => { 
+       
+            $('#preview-image-before-upload').attr('src', e.target.result); 
+          }
+       
+          reader.readAsDataURL(this.files[0]); 
+         
+         });
+         
+      });
+       
 </script>
 
 @push('js')
+
+<script src="{{asset('asset/js/exam/update.js')}}"></script>
 <script src="{{asset('asset/js/exam/examregister2.js')}}"></script>
 <script src="{{asset('asset/js/exam/modalAddEdit.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 @endpush
 
 

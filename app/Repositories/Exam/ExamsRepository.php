@@ -4,6 +4,8 @@ namespace App\Repositories\Exam;
 
 use App\Models\Exam;
 use App\Models\Question;
+use App\Models\SelectedExamQuestion;
+use Illuminate\Support\Carbon;
 
 class ExamsRepository
 {
@@ -56,7 +58,7 @@ class ExamsRepository
 
         // Total records
         $totalRecords           = Question::select('count(*) as allcount')->count();
-        $totalRecordswithFilter = Question::select('count(*) as allcount')->where('name', 'like', '%' .$searchValue . '%')->count();
+        // $totalRecordswithFilter = Question::select('count(*) as allcount')->where('name', 'like', '%' .$searchValue . '%')->count();
 
         // Fetch records
         $query                  = Question::orderBy($columnName,$columnSortOrder);
@@ -69,7 +71,7 @@ class ExamsRepository
 
                 });
             }
-
+            $totalRecordswithFilter =$query->select('count(*) as allcount')->count();
 
             $records = $query->select('*')
                     ->skip($start)
@@ -115,6 +117,58 @@ class ExamsRepository
 public static function edit($id)
 {
     return Question::find($id);
+}
+
+public static function examQuestion($ExamQ,$file)
+{
+
+    $current                = Carbon::now()->format('YmdHs');
+    $selected               = new SelectedExamQuestion;
+
+    $selected->examtype     = $ExamQ['examtype'];
+    $selected->question     = $ExamQ['exampleFormControlInput1'];
+    $selected->mark         = $ExamQ['exampleFormControlInput2'];
+
+    if($file)
+    {
+        $imageName                      = $ExamQ['QImage']->getClientOriginalName();
+        $ExamQ['QImage']->storeAs('QuestionImg',$current.$imageName);
+        $selected->questionImage        = $current.$imageName;
+    }
+    else
+    {
+        $selected->questionImage        = '';
+    }
+
+    $answeroptions                      = [
+
+
+        [
+            'answer_option_id'      => 1, 
+            'OptA'                  => $ExamQ['OptA'],
+            'is_answer'             => $ExamQ['customRadio2']==1 ? true : false,  ],
+
+        [
+            'answer_option_id'      => 1, 
+            'OptA'                  => $ExamQ['OptB'],
+            'is_answer'             => $ExamQ['customRadio2']==2 ? true : false,  ],
+
+        [
+            'answer_option_id'      => 1, 
+            'OptA'                  => $ExamQ['OptC'],
+            'is_answer'             => $ExamQ['customRadio2']==3 ? true : false,  ],
+
+        [
+            'answer_option_id'      => 1, 
+            'OptA'                  => $ExamQ['OptD'],
+            'is_answer'             => $ExamQ['customRadio2']==4 ? true : false,  ],
+        ];
+
+        $selected->answer_options   = $answeroptions;
+
+        $selected->save();
+
+
 }
         
 

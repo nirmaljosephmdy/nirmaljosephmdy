@@ -53,6 +53,17 @@ class ExamController extends Controller
 
     }
 
+    public function confirm(Request $request)
+    {
+        $file=false;
+        if($request->hasFile('QImage'))
+        {
+            $file=true;
+        }
+        $ExamQ=$request->all();
+        ExamsRepository::examQuestion($ExamQ,$file);
+    }
+
     /**
      * Display the specified resource.
      *
