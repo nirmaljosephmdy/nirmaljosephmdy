@@ -1,0 +1,4 @@
+<?php
+namespace App\Http\Requests\Manufacturer;
+use Illuminate\Foundation\Http\FormRequest;
+class StoreProductRequest extends FormRequest { public function authorize() { return true; } public function rules() { return ['category_id' => 'required|exists:categories,id', 'product_category_id' => 'required|exists:product_categories,id', 'name' => 'required|string|max:255', 'description' => 'required|string|min:50', 'intended_use' => 'required|string', 'sku' => 'nullable|string', 'batch_number' => 'nullable|string', 'brand_id' => 'nullable|exists:brands,id', 'ar_eu_id' => 'required|exists:ar_addresses,id', 'ar_uk_id' => 'nullable|exists:ar_addresses,id', 'images' => 'required|array|min:1|max:5', 'images.*' => 'image|mimes:jpg,png,webp|max:5120']; } }

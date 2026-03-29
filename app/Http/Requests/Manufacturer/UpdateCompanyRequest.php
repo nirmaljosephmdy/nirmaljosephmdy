@@ -1,0 +1,4 @@
+<?php
+namespace App\Http\Requests\Manufacturer;
+use Illuminate\Foundation\Http\FormRequest;
+class UpdateCompanyRequest extends FormRequest { public function authorize() { return true; } public function rules() { $companyId = auth()->user()->company->id ?? null; return ['name' => 'required|string|max:150|unique:companies,name,' . $companyId, 'registration_number' => 'required|string', 'country' => 'required|string', 'address' => 'required|string', 'city' => 'required|string', 'postcode' => 'required|string', 'website' => 'nullable|url', 'logo' => 'nullable|image|mimes:jpg,png,webp|max:2048']; } }
